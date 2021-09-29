@@ -1,0 +1,24 @@
+{
+  "name": "solo",
+  "version": "1.0.0",
+  "description": "crud to-do app",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elijahtang/solo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elijahtang/solo/issues"
+  },
+  "homepage": "https://github.com/elijahtang/solo#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  }
+}
