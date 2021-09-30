@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const db = require('./models/toDoDb');
+// const db = require('./models/toDoDb');
 const controllers = require('./controllers/controllers');
 
 app.use(express.json()); // handle parsing request body
@@ -10,7 +10,7 @@ app.use(express.json()); // handle parsing request body
 /**
  * handle requests for static files
  */
-app.use(express.static(path.resolve(__dirname, '../client'))); 
+app.use(express.static(path.resolve(__dirname, '../dist'))); 
 
 // setup back end routes for get and post
 // server sends the list back to client
@@ -23,6 +23,8 @@ app.get('/list', controllers.getList, (req, res) => {
 app.post('/list', controllers.insert, (req, res) => {
     console.log('in insert list line 24');
     res.status(200).json(res.locals.list);
+    // without .json(res.locals.list), 
+    // postman post request to /list never stops
   });
   
 
@@ -50,7 +52,7 @@ app.use((err, req, res, next) => {
 
 // start server
 app.listen(PORT, () => {
-    console.log(`server listening on port: ${PORT}`);
+    console.log(`server listening on port: ${PORT} at http://localhost:${PORT}`);
 })
 
-module.exports = app; //what is this for? copied from unit 9-express
+module.exports = app; //what is this for? copied from unit 9-express 

@@ -5,7 +5,9 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js"
+    "start": "nodemon server/index.js",
+    "build": "NODE_ENV='production' webpack",
+    "dev": "cross-env NODE_ENV=production concurrently \"webpack serve\" \"nodemon server/index.js\""
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,26 @@
   },
   "homepage": "https://github.com/elijahtang/solo#readme",
   "dependencies": {
+    "concurrently": "^6.2.2",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
-    "pg": "^8.7.1"
+    "mini-css-extract-plugin": "^2.3.0",
+    "nodemon": "^2.0.13",
+    "pg": "^8.7.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "html-webpack-plugin": "^5.3.2",
+    "style-loader": "^3.3.0",
+    "svg-inline-loader": "^0.8.2",
+    "webpack": "^5.55.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }

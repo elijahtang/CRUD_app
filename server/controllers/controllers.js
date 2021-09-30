@@ -8,7 +8,7 @@ controllers.getList = (req, res, next) => {
   db.query(queryString)
   .then(data => {
     res.locals.list = (data.rows);
-    res.send(res.locals.list);
+    // res.send(res.locals.list);
     console.log('in db query then');
     next();
   })
