@@ -21,13 +21,27 @@ controllers.getList = (req, res, next) => {
 
 controllers.insert = (req, res, next) => {
     const queryString = `INSERT INTO list (task, completed)
-    VALUES ('inserting task from controllers.insert', 'no')`;
+    VALUES ('${req.body.task}', 'no')`;
     db.query(queryString)
     .then(data => {
       next();
     })
     .catch(err => next({
         log: `In controllers.insert: ${err}`,
+        status: 500,
+        message: { err: 'An error occurred' },
+      }));
+  }
+
+  controllers.delete = (req, res, next) => {
+    const queryString = `DELETE FROM list where id = $1`
+    db.query(queryString, [req.params.id])
+    .then(data => {
+      console.log('deleted task id: ', req.params.id );
+      next();
+    })
+    .catch(err => next({
+        log: `In controllers.delete: ${err}`,
         status: 500,
         message: { err: 'An error occurred' },
       }));

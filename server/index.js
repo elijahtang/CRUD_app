@@ -21,12 +21,15 @@ app.get('/list', controllers.getList, (req, res) => {
 
 // client add a task to the list and server saves it to the database
 app.post('/list', controllers.insert, (req, res) => {
-    console.log('in insert list line 24');
-    res.status(200).json(res.locals.list);
-    // without .json(res.locals.list), 
-    // postman post request to /list never stops
-  });
-  
+  console.log('in insert list line 24');
+  res.status(200).json(res.locals.list);
+  // without .json(res.locals.list), 
+  // postman post request to /list never stops
+});
+
+app.delete('/list/:id', controllers.delete, (req, res) => {
+    return res.status(200)
+})
 
 
 // catch-all route handler for any requests to an unknown route

@@ -14,8 +14,5 @@
  import App from './App';
 //  import styles from './scss/application.scss'; // eslint-disable-line no-unused-vars
  
- render(
-     <App />,
-   document.getElementById('root'),
- );
+ render(<App />, document.getElementById('root'));
  
